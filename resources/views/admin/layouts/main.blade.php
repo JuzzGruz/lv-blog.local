@@ -33,21 +33,21 @@
                 <ul class="navbar-nav ms-auto"> <!--begin::Navbar Search-->
                     <li class="nav-item dropdown user-menu"> 
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"> 
-                            @if (!isset($user->avatar))
+                            @if (!isset(auth()->user()->avatar))
                                 <img src="{{ asset('storage/usersavatars/!__Profile_logo_standart__!__b85303fcabfe4845b19afa565e8fce6fe112a3ff935c.jpg') }}" class="user-image rounded-circle shadow" alt="avatar" width="25" height="25" />
                             @else
-                                <img src="{{ asset('storage/' . $user->avatar) }}" class="user-image rounded-circle shadow" alt="avatar" width="25" height="25" />
+                                <img src="{{ asset('storage/' . auth()->user()->avatar) }}" class="user-image rounded-circle shadow" alt="avatar" width="25" height="25" />
                             @endif
-                            <span class="d-none d-md-inline">{{ $user->name }}</span> 
+                            <span class="d-none d-md-inline">{{ auth()->user()->name }}</span> 
                         </a>
                         <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end"> <!--begin::User Image-->
                             <li class="user-header text-bg-primary"> 
-                                @if (!isset($user->avatar))
+                                @if (!isset(auth()->user()->avatar))
                                     <img src="{{ asset('storage/usersavatars/!__Profile_logo_standart__!__b85303fcabfe4845b19afa565e8fce6fe112a3ff935c.jpg') }}" class="rounded-circle shadow" alt="avatar" width="25" height="25" />
                                 @else
-                                    <img src="{{ asset('storage/' . $user->avatar) }}" class="rounded-circle shadow" alt="avatar" width="25" height="25" />
+                                    <img src="{{ asset('storage/' . auth()->user()->avatar) }}" class="rounded-circle shadow" alt="avatar" width="25" height="25" />
                                 @endif
-                                <p>{{ $user->name }}</p>
+                                <p>{{ auth()->user()->name }}</p>
                             </li> <!--end::User Image--> <!--begin::Menu Body-->
                             <li class="user-footer"> 
                                 <a href="{{ route('personal.profile.edit') }}" class="btn btn-default btn-flat float-start">Profile</a> 
