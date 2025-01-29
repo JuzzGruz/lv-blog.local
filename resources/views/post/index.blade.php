@@ -4,7 +4,22 @@
 <main class="blog-post">
   <div class="container">
       <h1 class="edica-page-title" data-aos="fade-up">{{ $post->title }}</h1>
-      <p class="edica-blog-post-meta" data-aos="fade-up" data-aos-delay="200">Written by <a href="{{ route('public_user_profile.index', $post->authorPost->id) }}">{{ $post->authorPost->name }}</a> • {{ $post->created_at->day }} {{ $post->created_at->format('F') }} {{ $post->created_at->year }} • {{ $post->usersComments()->count() }} Comments</p>
+      <p class="edica-blog-post-meta mb-0" data-aos="fade-up" data-aos-delay="200">
+        Written by <a href="{{ route('public_user_profile.index', $post->authorPost->id) }}">{{ $post->authorPost->name }}</a>
+        •
+        {{ $post->created_at->day }} {{ $post->created_at->format('F') }} {{ $post->created_at->year }}
+        •
+        {{ $post->usersComments()->count() }} Comments
+        </p>
+        <br>
+        <p class="edica-blog-post-meta" data-aos="fade-up" data-aos-delay="200">
+            Category : {{ $post->category->title }}
+            •
+            Tags : -
+            @foreach ($post->tags as $tag)
+                {{ $tag->title }} - 
+            @endforeach
+        </p>
       <section class="blog-post-featured-img" data-aos="fade-up" data-aos-delay="300">
           <div class="p-0 m-0" style="height: 300px; overflow: hidden;">
             <img src="{{ asset('Storage/' . $post->main_image) }}" alt="featured image" class="w-100">
