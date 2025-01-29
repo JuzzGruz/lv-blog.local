@@ -13,13 +13,13 @@ class IndexController extends Controller
         $categories = Category::all();
         
         $posts = [
-            $request = Post::latest()->first(9)->get(),
+            $request = Post::query()->orderBy('created_at', 'desc')->take(9)->get(),
 
-            'firstPosts' => $firstThree = [$request[1],$request[2],$request[3]],
+            'firstPosts' => $firstThree = [$request[0],$request[1],$request[2]],
             'otherPosts' => $otherPosts = [
-                                            'first' => [$request[4],$request[5]],
-                                            'second' => [$request[6],$request[7]],
-                                            'last' => [$request[8],$request[9]]
+                                            'first' => [$request[3],$request[4]],
+                                            'second' => [$request[5],$request[6]],
+                                            'last' => [$request[7],$request[8]]
                                             ],
             'carouselPosts' => $carouselPosts = [
                                                     $post = Post::get()->random(3),
