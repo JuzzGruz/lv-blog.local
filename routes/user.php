@@ -60,81 +60,6 @@ use App\Http\Controllers\PublicUserProfile\Main\IndexController as PublicProfile
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::group(['namespace' => 'App\Http\Controllers\Main'], function () {
-    Route::get('/', IndexController::class)->name('home');
-});
-
-Route::group(['namespace' => 'App\Http\Controllers\Archive'], function () {
-    Route::get('/archive', [ArchiveIndexController::class, 'archive'])->name('archive');
-    Route::get('/archive/{category}', [ArchiveIndexController::class, 'category'])->name('categoryPosts');
-    Route::post('/archive/result', [ArchiveIndexController::class, 'search'])->name('archiveSearch');
-});
-
-Route::group(['namespace' => 'App\Http\Controllers\Post', 'prefix' => 'post'], function(){
-
-    Route::group(['namespace' => 'Main'], function () {
-        Route::get('/{post}', PostIndexController::class)->name('post.index');
-    });
-
-    Route::group(['namespace' => 'Comment', 'prefix' => 'comment', 'middleware' => ['auth', 'verified']], function () {
-        Route::post('/{post}', StoreCommentController::class)->name('post.comment.store');
-    });
-    
-    Route::group(['namespace' => 'Like', 'prefix' => 'like', 'middleware' => ['auth']], function () {
-        Route::post('/{post}', StoreLikeController::class)->name('post.like.store');
-    });
-});
-
-Route::get('/profile/{user}', PublicProfileController::class)->name('public_user_profile.index');
-
-
-Route::group([
-    'namespace' => 'App\Http\Controllers\Admin', 
-    'prefix' => 'admin', 
-    'middleware' => ['auth', 'admin', 'verified']], function () {
-    Route::group(['namespace' => 'Main'], function () {
-        Route::get('/', AdminMainIndexController::class)->name('admin.index');
-    });
-
-    Route::group(['namespace' => 'Post', 'prefix' => 'posts'], function () {
-        Route::get('/', AdminPostIndexController::class)->name('admin.post.index');
-        Route::get('/create', AdminPostCreate::class)->name('admin.post.create');
-        Route::post('/', AdminPostStore::class)->name('admin.post.store');
-        Route::get('/{post}/edit', AdminPostEdit::class)->name('admin.post.edit');
-        Route::get('/{post}/show', AdminPostShow::class)->name('admin.post.show');
-        Route::patch('/{post}', AdminPostUpdate::class)->name('admin.post.update');
-        Route::delete('/{post}', AdminPostDelete::class)->name('admin.post.delete');
-    });
-
-    Route::group(['namespace' => 'Category', 'prefix' => 'categories'], function () {
-        Route::get('/', CategoryIndexController::class)->name('admin.category.index');
-        Route::get('/create', CategoryCreate::class)->name('admin.category.create');
-        Route::post('/', CategoryStore::class)->name('admin.category.store');
-        Route::get('/{category}/edit', CategoryEdit::class)->name('admin.category.edit');
-        Route::patch('/{category}', CategoryUpdate::class)->name('admin.category.update');
-        Route::delete('/{category}', CategoryDelete::class)->name('admin.category.delete');
-    });
-
-    Route::group(['namespace' => 'Tag', 'prefix' => 'tags'], function () {
-        Route::get('/', TagIndexController::class)->name('admin.tag.index');
-        Route::get('/create', TagCreate::class)->name('admin.tag.create');
-        Route::post('/', TagStore::class)->name('admin.tag.store');
-        Route::get('/{tag}/edit', TagEdit::class)->name('admin.tag.edit');
-        Route::patch('/{tag}', TagUpdate::class)->name('admin.tag.update');
-        Route::delete('/{tag}', TagDelete::class)->name('admin.tag.delete');
-    });
-
-    Route::group(['namespace' => 'User', 'prefix' => 'users'], function () {
-        Route::get('/', UserIndexController::class)->name('admin.user.index');
-        Route::get('/create', UserCreate::class)->name('admin.user.create');
-        Route::post('/', UserStore::class)->name('admin.user.store');
-        Route::get('/{user}/edit', UserEdit::class)->name('admin.user.edit');
-        Route::get('/{user}/show', UserShow::class)->name('admin.user.show');
-        Route::patch('/{user}', UserUpdate::class)->name('admin.user.update');
-        Route::delete('/{user}', UserDelete::class)->name('admin.user.delete');
-    });
-});
-
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::group(['namespace' => 'App\Http\Controllers\Personal', 'prefix' => 'personal'], function () {
@@ -167,4 +92,4 @@ Route::middleware(['auth', 'verified'])->group(function () {
     });
 });
 
-require __DIR__ . '/admin.php';
+require __DIR__ . '/auth.php';

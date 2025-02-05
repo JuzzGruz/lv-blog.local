@@ -60,34 +60,6 @@ use App\Http\Controllers\PublicUserProfile\Main\IndexController as PublicProfile
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::group(['namespace' => 'App\Http\Controllers\Main'], function () {
-    Route::get('/', IndexController::class)->name('home');
-});
-
-Route::group(['namespace' => 'App\Http\Controllers\Archive'], function () {
-    Route::get('/archive', [ArchiveIndexController::class, 'archive'])->name('archive');
-    Route::get('/archive/{category}', [ArchiveIndexController::class, 'category'])->name('categoryPosts');
-    Route::post('/archive/result', [ArchiveIndexController::class, 'search'])->name('archiveSearch');
-});
-
-Route::group(['namespace' => 'App\Http\Controllers\Post', 'prefix' => 'post'], function(){
-
-    Route::group(['namespace' => 'Main'], function () {
-        Route::get('/{post}', PostIndexController::class)->name('post.index');
-    });
-
-    Route::group(['namespace' => 'Comment', 'prefix' => 'comment', 'middleware' => ['auth', 'verified']], function () {
-        Route::post('/{post}', StoreCommentController::class)->name('post.comment.store');
-    });
-    
-    Route::group(['namespace' => 'Like', 'prefix' => 'like', 'middleware' => ['auth']], function () {
-        Route::post('/{post}', StoreLikeController::class)->name('post.like.store');
-    });
-});
-
-Route::get('/profile/{user}', PublicProfileController::class)->name('public_user_profile.index');
-
-
 Route::group([
     'namespace' => 'App\Http\Controllers\Admin', 
     'prefix' => 'admin', 
@@ -135,36 +107,4 @@ Route::group([
     });
 });
 
-
-Route::middleware(['auth', 'verified'])->group(function () {
-    Route::group(['namespace' => 'App\Http\Controllers\Personal', 'prefix' => 'personal'], function () {
-        Route::group(['namespace' => 'Main'], function () {
-            Route::get('/', PersonalIndexController::class)->name('personal.main.index');
-        });
-
-        Route::group(['namespace' => 'Post', 'prefix' => 'my_posts'], function () {
-            Route::get('/', PersonalPostIndexController::class)->name('personal.post.index');
-            Route::get('/create', PersonalPostCreateController::class)->name('personal.post.create');
-            Route::post('/', PersonalPostStoreController::class)->name('personal.post.store');
-            Route::delete('/{post}', PersonalPostDeleteController::class)->name('personal.post.delete');
-        });
-
-        Route::group(['namespace' => 'Liked', 'prefix' => 'liked_posts'], function () {
-            Route::get('/', LikedIndexController::class)->name('personal.likes.index');
-            Route::delete('/{post}', LikedDeleteController::class)->name('personal.likes.delete');
-        });
-
-        Route::group(['namespace' => 'Comment', 'prefix' => 'my_comments'], function () {
-            Route::get('/', CommentIndexController::class)->name('personal.comment.index');
-            Route::delete('/{comment}', CommentDeleteController::class)->name('personal.comment.delete');
-            Route::get('/{comment}/edit', CommentEditController::class)->name('personal.comment.edit');
-            Route::patch('/{comment}', CommentUpdateController::class)->name('personal.comment.update');
-        });
-
-        Route::get('/profile', [ProfileController::class, 'edit'])->name('personal.profile.edit');
-        Route::patch('/profile', [ProfileController::class, 'update'])->name('personal.profile.update');
-        Route::delete('/profile', [ProfileController::class, 'destroy'])->name('personal.profile.destroy');
-    });
-});
-
-require __DIR__ . '/admin.php';
+require __DIR__ . '/user.php';
