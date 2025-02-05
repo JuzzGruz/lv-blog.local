@@ -1,7 +1,5 @@
 <?php
 
-use App\Http\Controllers\Main\IndexController;
-
 use App\Http\Controllers\Admin\Main\IndexController as AdminMainIndexController;
 
 use App\Http\Controllers\Admin\Category\IndexController as CategoryIndexController;
@@ -34,30 +32,6 @@ use App\Http\Controllers\Admin\User\EditController as UserEdit;
 use App\Http\Controllers\Admin\User\StoreController as UserStore;
 use App\Http\Controllers\Admin\User\UpdateController as UserUpdate;
 
-use App\Http\Controllers\Personal\Main\IndexController as PersonalIndexController;
-
-use App\Http\Controllers\Personal\Liked\IndexController as LikedIndexController;
-use App\Http\Controllers\Personal\Liked\DeleteController as LikedDeleteController;
-
-use App\Http\Controllers\Personal\Comment\IndexController as CommentIndexController;
-use App\Http\Controllers\Personal\Comment\DeleteController as CommentDeleteController;
-use App\Http\Controllers\Personal\Comment\EditController as CommentEditController;
-use App\Http\Controllers\Personal\Comment\UpdateController as CommentUpdateController;
-
-use App\Http\Controllers\Personal\Post\IndexController as PersonalPostIndexController;
-use App\Http\Controllers\Personal\Post\CreateController as PersonalPostCreateController;
-use App\Http\Controllers\Personal\Post\DeleteController as PersonalPostDeleteController;
-use App\Http\Controllers\Personal\Post\StoreController as PersonalPostStoreController;
-
-use App\Http\Controllers\Post\Main\IndexController as PostIndexController;
-use App\Http\Controllers\Post\Like\StoreController as StoreLikeController;
-use App\Http\Controllers\Post\Comment\StoreController as StoreCommentController;
-
-use App\Http\Controllers\Archive\IndexController as ArchiveIndexController;
-
-use App\Http\Controllers\PublicUserProfile\Main\IndexController as PublicProfileController;
-
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::group([
