@@ -22,7 +22,18 @@
     <header class="edica-header">
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light">
-                <a class="navbar-brand" href="{{ route('home') }}"><img src="{{ asset('assets/images/logo.svg') }}" alt="Edica"></a>
+                <a class="navbar-brand" href="{{ route('home') }}">
+                    <svg height="50px" width="50px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 474.649 474.649" xml:space="preserve" fill="#c2c2c2" stroke="#c2c2c2">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier"> 
+                        <circle style="fill:#1eb38e;" cx="236.967" cy="236.985" r="236.967"></circle> 
+                        <path style="fill:#1c9c7c;" d="M405.239,70.083c92.542,92.546,92.549,242.588,0,335.141c-92.542,92.542-242.599,92.546-335.144,0 L405.239,70.083z"></path> 
+                        <path style="fill:#03684a;" d="M465.576,299.447L295.571,129.45l-34.634,34.638l-95.049-13.358l19.592,88.811l-68.306,68.306 l24.011,24.011l-5.923,5.923l133.93,133.934C363.971,458.828,440.895,389.938,465.576,299.447z"></path> 
+                        <path style="fill:#FFFFFF;" d="M286.12,362.458c44.363,0,80.4-36.138,80.651-80.258l0.498-64.961l-0.745-3.536l-2.129-4.445 l-3.607-2.791c-4.681-3.667-28.404,0.247-34.791-5.549c-4.528-4.138-5.235-11.618-6.612-21.751 c-2.548-19.629-4.15-20.655-7.229-27.304c-11.169-23.633-41.474-41.392-62.293-43.843h-56.396c-44.37,0-80.643,36.194-80.643,80.396 v93.784c0,44.119,36.269,80.258,80.643,80.258H286.12z M194.494,173.696h44.707c8.539,0,15.454,6.93,15.454,15.353 c0,8.389-6.915,15.379-15.454,15.379h-44.707c-8.535,0-15.439-6.99-15.439-15.379C179.056,180.626,185.959,173.696,194.494,173.696z M179.056,281.007c0-8.419,6.904-15.293,15.439-15.293h90.847c8.483,0,15.368,6.874,15.368,15.293 c0,8.314-6.889,15.296-15.368,15.296h-90.847C185.959,296.303,179.056,289.321,179.056,281.007z"></path> 
+                        </g>
+                    </svg>
+                </a>
                 <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#edicaMainNav" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -126,8 +137,17 @@
         <div class="container">
             <div class="row footer-widget-area">
                 <div class="col-md-3">
-                    <a href="index.html" class="footer-brand-wrapper">
-                        <img src="{{ asset('assets/images/logo.svg') }}" alt="edica logo">
+                    <a class="navbar-brand" href="{{ route('home') }}">
+                        <svg height="50px" width="50px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 474.649 474.649" xml:space="preserve" fill="#c2c2c2" stroke="#c2c2c2">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier"> 
+                            <circle style="fill:#1eb38e;" cx="236.967" cy="236.985" r="236.967"></circle> 
+                            <path style="fill:#1c9c7c;" d="M405.239,70.083c92.542,92.546,92.549,242.588,0,335.141c-92.542,92.542-242.599,92.546-335.144,0 L405.239,70.083z"></path> 
+                            <path style="fill:#03684a;" d="M465.576,299.447L295.571,129.45l-34.634,34.638l-95.049-13.358l19.592,88.811l-68.306,68.306 l24.011,24.011l-5.923,5.923l133.93,133.934C363.971,458.828,440.895,389.938,465.576,299.447z"></path> 
+                            <path style="fill:#FFFFFF;" d="M286.12,362.458c44.363,0,80.4-36.138,80.651-80.258l0.498-64.961l-0.745-3.536l-2.129-4.445 l-3.607-2.791c-4.681-3.667-28.404,0.247-34.791-5.549c-4.528-4.138-5.235-11.618-6.612-21.751 c-2.548-19.629-4.15-20.655-7.229-27.304c-11.169-23.633-41.474-41.392-62.293-43.843h-56.396c-44.37,0-80.643,36.194-80.643,80.396 v93.784c0,44.119,36.269,80.258,80.643,80.258H286.12z M194.494,173.696h44.707c8.539,0,15.454,6.93,15.454,15.353 c0,8.389-6.915,15.379-15.454,15.379h-44.707c-8.535,0-15.439-6.99-15.439-15.379C179.056,180.626,185.959,173.696,194.494,173.696z M179.056,281.007c0-8.419,6.904-15.293,15.439-15.293h90.847c8.483,0,15.368,6.874,15.368,15.293 c0,8.314-6.889,15.296-15.368,15.296h-90.847C185.959,296.303,179.056,289.321,179.056,281.007z"></path> 
+                            </g>
+                        </svg>
                     </a>
                     <p class="contact-details">hello@edica.com</p>
                     <p class="contact-details">+23 3000 000 00</p>
@@ -157,21 +177,6 @@
                         <a href="#!" class="nav-link">API</a>
                         <a href="#!" class="nav-link">Pricing</a>
                     </nav>
-                </div>
-                <div class="col-md-3">
-                    <div class="dropdown footer-country-dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="footerCountryDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="flag-icon flag-icon-gb flag-icon-squared"></span> United Kingdom <i class="fas fa-chevron-down ml-2"></i>
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="footerCountryDropdown">
-                            <button class="dropdown-item" href="#">
-                                <span class="flag-icon flag-icon-us flag-icon-squared"></span> United States
-                            </button>
-                            <button class="dropdown-item" href="#">
-                                <span class="flag-icon flag-icon-au flag-icon-squared"></span> Australia
-                            </button>
-                        </div>
-                    </div>
                 </div>
             </div>
             <div class="footer-bottom-content">
