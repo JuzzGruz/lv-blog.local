@@ -22,9 +22,4 @@
             </button>
         </div>
     </form>
-    <form action="{{ route('password.email') }}" method="post">
-        @csrf
-        <input type="hidden" name="email" id="email" value="{{ auth()->user()->email }}">
-        <button type="submit" class="btn btn-primary ms-2 mt-5">Reset password</button>
-    </form>
 </x-guest-layout>
