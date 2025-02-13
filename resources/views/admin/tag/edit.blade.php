@@ -12,6 +12,15 @@
             <div class="row">
                 <div class="col-12">
                     <p class="fw-bold fs-4">Edit tag</p>
+                    @if ($errors->any())
+                        <div class="alert alert-danger col-3">
+                            <ul class="m-0">
+                                @foreach ($errors->all() as $error)
+                                    <li class="list-unstyled fw-bold fs-6">{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                 </div>
             </div>
             <div class="row col-3">  <!--Table category-->
